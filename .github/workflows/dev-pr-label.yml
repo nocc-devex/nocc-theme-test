@@ -15,9 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: "Check if label found"
         if: |
-          contains(github.event.pull_request.labels.*.name, 'major') ||
-          contains(github.event.pull_request.labels.*.name, 'minor') ||
-          contains(github.event.pull_request.labels.*.name, 'patch')
+          contains(github.event.pull_request.labels.*.name, 'major') || contains(github.event.pull_request.labels.*.name, 'minor') || contains(github.event.pull_request.labels.*.name, 'patch')
       - uses: mheap/github-action-required-labels@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -27,9 +25,7 @@ jobs:
          labels: "major, minor, patch"
       - name: "Label not found"
         if: |
-          !contains(github.event.pull_request.labels.*.name, 'major') ||
-          !contains(github.event.pull_request.labels.*.name, 'minor') ||
-          !contains(github.event.pull_request.labels.*.name, 'patch')
+          !contains(github.event.pull_request.labels.*.name, 'major') || !contains(github.event.pull_request.labels.*.name, 'minor') || !contains(github.event.pull_request.labels.*.name, 'patch')
       - uses: mshick/add-pr-comment@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

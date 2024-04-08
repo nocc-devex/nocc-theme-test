@@ -1,5 +1,8 @@
-name: 'MAIN - PR Restrict origin'
+name: 'Main - PR Restrict origin'
 on:
+  pull_request:
+    branches:
+      - main
   pull_request_target:
     types:
       - opened
@@ -8,6 +11,7 @@ on:
       - edited
 jobs:
   check-branches:
+    name: Check PR origin
     runs-on: ubuntu-latest
     steps:
       - name: Check branches

@@ -1,4 +1,4 @@
-name: Check PR approval for non-admin authors
+name: 'MAIN - PR Approval checker'
 on:
   # PR into main opened, reopened, or synchronized
   pull_request:

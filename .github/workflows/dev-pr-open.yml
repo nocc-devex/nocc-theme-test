@@ -1,0 +1,19 @@
+name: 'Dev - PR Open'
+on:
+  pull_request:
+    branches:
+      - dev
+    types:
+      - opened
+      - reopened
+jobs:
+  add_comment:
+    name: 'Add Comment'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: |
+            **Please set a versioning label of either `major`, `minor`, or `patch` to the pull request.**

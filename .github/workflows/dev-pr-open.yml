@@ -5,6 +5,7 @@ on:
       - dev
     types:
       - opened
+      - reopened
 jobs:
   add_comment:
     name: 'Add Comment'

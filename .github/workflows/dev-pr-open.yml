@@ -8,7 +8,7 @@ on:
       - reopened
 jobs:
   add_comment:
-    name: 'Add Comment'
+    name: 'Add comment to PR'
     runs-on: ubuntu-latest
     steps:
       - uses: mshick/add-pr-comment@v2

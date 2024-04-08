@@ -12,12 +12,12 @@ jobs:
     name: 'Check PR Labels'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: "Check if label found"
         if: |
           contains(github.event.pull_request.labels.*.name, 'major') ||
           contains(github.event.pull_request.labels.*.name, 'minor') ||
           contains(github.event.pull_request.labels.*.name, 'patch')
-        uses: actions/checkout@v4
       - uses: mheap/github-action-required-labels@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -8,8 +8,20 @@ on:
       - labeled
       - unlabeled
 jobs:
+  add_label:
+    name: 'Set label auto-merge'
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: add label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: auto-merge
   check_labels:
     name: 'Check PR Labels'
+    needs:
+      - add_label
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,14 +34,3 @@ jobs:
           labels: "major, minor, patch"
           message: "Please set a versioning label of either `major`, `minor`, or `patch` to the pull request."
           add_comment: true
-  merge_pr:
-    name: Merge PR
-    needs:
-      - check_labels
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ridedott/merge-me-action@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    timeout-minutes: 5

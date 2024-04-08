@@ -9,7 +9,7 @@ on:
     types:
       - submitted
 jobs:
-  checkapproval:
+  check_approval:
     name: Check PR approval
     runs-on: ubuntu-latest
     # Event has to be a pull request, or the base branch has to be main

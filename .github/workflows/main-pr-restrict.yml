@@ -10,7 +10,7 @@ on:
       - synchronize
       - edited
 jobs:
-  check-branches:
+  check_branches:
     name: Check PR origin
     runs-on: ubuntu-latest
     steps:

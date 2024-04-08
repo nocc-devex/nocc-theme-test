@@ -21,8 +21,7 @@ jobs:
           mode: exactly
           count: 1
           labels: "major, minor, patch"
-      - name: "Label not found"
-        uses: mshick/add-pr-comment@v2
+      - uses: mshick/add-pr-comment@v2
         if: !(contains(github.event.pull_request.labels.*.name, 'major') || contains(github.event.pull_request.labels.*.name, 'minor') || contains(github.event.pull_request.labels.*.name, 'patch'))
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

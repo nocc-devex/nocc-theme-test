@@ -20,3 +20,5 @@ jobs:
           mode: exactly
           count: 1
           labels: "major, minor, patch"
+          message: "Please set a versioning label of either `major`, `minor`, or `patch` to the pull request."
+          add_comment: true

@@ -14,17 +14,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: mheap/github-action-required-labels@v5
-        if: contains(github.event.pull_request.labels.*.name, 'major') || contains(github.event.pull_request.labels.*.name, 'minor') || contains(github.event.pull_request.labels.*.name, 'patch')
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           mode: exactly
           count: 1
           labels: "major, minor, patch"
-      - uses: mshick/add-pr-comment@v2
-        if: !(contains(github.event.pull_request.labels.*.name, 'major') || contains(github.event.pull_request.labels.*.name, 'minor') || contains(github.event.pull_request.labels.*.name, 'patch'))
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          message: |
-            **Please set a versioning label of either `major`, `minor`, or `patch` to the pull request.**
+          message: "Please set a versioning label of either `major`, `minor`, or `patch` to the pull request."
+          add_comment: true

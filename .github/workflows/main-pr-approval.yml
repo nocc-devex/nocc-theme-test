@@ -9,14 +9,14 @@ on:
     types:
       - submitted
 jobs:
-  checkapproval:
-    name: Check PR approval
+  check_approval:
+    name: 'Check PR approval'
     runs-on: ubuntu-latest
     # Event has to be a pull request, or the base branch has to be main
     if: >-
       github.event_name == 'pull_request' || github.event.pull_request.base.ref == 'main'
     steps:
-      - name: Check if author is repo admin
+      - name: 'Check if author is repo admin'
         env:
           author: ${{ github.event.pull_request.user.login }}
           repo: ${{ github.repository }}
@@ -31,7 +31,7 @@ jobs:
               # Set success state in environment
               echo "STATE=success" >> "$GITHUB_ENV"
           fi
-      - name: Check for PR approval
+      - name: 'Check for PR approval'
         # Run only if the previous step failed
         if: env.STATE != 'success'
         env:
@@ -58,7 +58,7 @@ jobs:
           echo "PR approval found" >&2
           # Set success state in environment
           echo "STATE=success" >> "$GITHUB_ENV"
-      - name: Set result in separate status
+      - name: 'Set result in separate status'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           sha: ${{ github.event.pull_request.head.sha }}

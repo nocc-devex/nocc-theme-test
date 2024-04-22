@@ -1,0 +1,64 @@
+# Default labels
+
+- name: duplicate
+  description: This issue or pull request already exists
+  color: cfd3d7
+- name: help
+  description: Extra attention is needed
+  color: 008672
+- name: wontfix
+  description: This will not be worked on
+  color: ffffff
+- name: good first issue
+  description: Good for newcomers
+  color: 0e8a16
+
+# Custom labels
+- name: "type: bug"
+  description: Something isn't working
+  color: d73a4a
+- name: "type: docs"
+  description: Improvements or additions to documentation
+  color: 0075ca
+- name: "type: feature"
+  description: New feature or request
+  color: a2eeef
+- name: "type: question"
+  description: Further information is requested
+  color: d876e3
+- name: "type: fix"
+  description:
+  color: 
+- name: "type: security"
+  description:
+  color: 
+
+- name: ☂️ wip
+  description: "Work in progress"
+  color: fbca04
+- name: auto-merge
+  description: Enables PR auto-merge
+  color: B60205
+- name: invalid
+  description: This doesn't seem right
+  color: e4e669
+- name: major
+  description: Set major version
+  color: 0052CC
+- name: minor
+  description: Set minor version
+  color: 1D76DB
+- name: patch
+  description: Set patch version
+  color: 006B75
+- name: 
+  description: 
+  color: 
+- name: 
+  description: 
+  color: 
+- name: 
+  description: 
+  color: 
+
+
